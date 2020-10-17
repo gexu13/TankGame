@@ -4,13 +4,10 @@ import java.io.*;
 import java.util.Vector;
 
 public class Recorder {
-
     //类变量
     private static int myLives = 5 ;
     private static int enemyLives = 20;
     private static int myTotalScore = 0;
-
-
     private static FileWriter fileWriter = null;
     private static BufferedWriter bufferedWriter = null;
     private static FileReader fileReader = null;
@@ -61,10 +58,7 @@ public class Recorder {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
         }
-
-
     }
 
     //读取我的成绩
@@ -152,11 +146,6 @@ public class Recorder {
         enemyLives=20;
     }
 
-
-
-
-
-
     public static int getMyTotalScore() {
         return myTotalScore;
     }
@@ -192,6 +181,4 @@ public class Recorder {
     public static void gainMyScore(){
         myTotalScore++;
     }
-
-
 }
