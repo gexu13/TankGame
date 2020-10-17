@@ -402,7 +402,7 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
             //炮弹发射枚数
             if (myTank.shellVector.size() < myTank.shellNum) {
                 //如果我的坦克还活着，就能开炮
-                if (myTank.tankExist == true) {
+                if (myTank.tankExist) {
                     this.myTank.shot();
                     Audio audioMyTankShot = new Audio("resources/audio/biu.wav");
                     audioMyTankShot.start();
@@ -427,12 +427,11 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
             //遍历每一颗炮弹
             for (int i = 0; i < this.myTank.shellVector.size(); i++) {
                 Shell shell = this.myTank.shellVector.get(i);
-                if (shell.shellExist == true) {
+                if (shell.shellExist) {
                     //遍历每一台敌人坦克
-                    for (int j = 0; j < this.enemyTankVector.size(); j++) {
-                        EnemyTank enemyTank = this.enemyTankVector.get(j);
+                    for (EnemyTank enemyTank : this.enemyTankVector) {
                         //判断敌人坦克是否还存活
-                        if (enemyTank.tankExist == true) {
+                        if (enemyTank.tankExist) {
                             this.hitEnemyTank(enemyTank, shell);
                         }
                     }
@@ -442,13 +441,13 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
             //遍历每一台敌人坦克
             for (int i = 0; i < enemyTankVector.size(); i++) {
                 EnemyTank enemyTank = enemyTankVector.get(i);
-                if (enemyTank.tankExist == true) {
+                if (enemyTank.tankExist) {
                     //遍历敌人坦克的每一颗炮弹
                     for (int j = 0; j < enemyTank.shellVector.size(); j++) {
                         Shell enemyShell = enemyTank.shellVector.get(j);
-                        if (enemyShell.shellExist == true) {
+                        if (enemyShell.shellExist) {
                             //判断我的坦克是否还存活
-                            if (myTank.tankExist == true) {
+                            if (myTank.tankExist) {
                                 this.hitMyTank(myTank, enemyShell);
 
                             }
