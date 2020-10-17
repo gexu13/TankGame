@@ -23,9 +23,8 @@ public class Recorder {
     //保存我的成绩和敌人的坐标
     public static void saveMyScoresAndTankCoordinates(){
         try {
-            fileWriter = new FileWriter("/src/com/TankGame/Document/MyScoresAndTankCoordinates");
+            fileWriter = new FileWriter("resources/Document/MyScoresAndTankCoordinates");
             bufferedWriter = new BufferedWriter(fileWriter);
-
             //第一行：把我的总分数写入指定的文件中
             bufferedWriter.write(Recorder.getMyTotalScore()+"\n");
             //第二行：把我的生命值写入指定文件中
@@ -33,14 +32,14 @@ public class Recorder {
             //第三行：把剩余敌人坦克数也写入指定文件中
             bufferedWriter.write(Recorder.getEnemyLives()+"\n");
             //第四行：把我的坦克坐标也写入文件
-            if(myTank.tankExist==true){
+            if(myTank.tankExist){
                 bufferedWriter.write(myTank.getX()+" "+myTank.getY()+" "+myTank.getDirection()+" "+"\n");
             }
 
             //将每一台敌人坦克的坐标取出并写入文件
             for (int i = 0; i<enemyTanks.size(); i++){
                 EnemyTank enemyTank = enemyTanks.get(i);
-                if (enemyTank.tankExist==true){
+                if (enemyTank.tankExist){
 
                     //把内容写入指定的文件中
                     bufferedWriter.write(enemyTank.getX()+" "+enemyTank.getY()+" "+enemyTank.getDirection()+" "+"\n");
@@ -64,15 +63,13 @@ public class Recorder {
     //读取我的成绩
     public static void recoverMyScores(){
         try {
-            fileReader = new FileReader("/src/com/TankGame/Document/MyScoresAndTankCoordinates");
+            fileReader = new FileReader("resources/Document/MyScoresAndTankCoordinates");
             bufferedReader = new BufferedReader(fileReader);
 
             //读第一行MyScores文件到String中
             String readMyScores = bufferedReader.readLine();
             //将String转换成Integer并把值传给MyScores
             setMyTotalScore(Integer.parseInt(readMyScores));
-
-
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,7 +82,6 @@ public class Recorder {
                 e.printStackTrace();
             }
         }
-
     }
 
     //读取我的成绩和敌人坦克的坐标
@@ -93,7 +89,7 @@ public class Recorder {
         EnemyTankCoordinateVector.clear();
         try {
 
-            fileReader = new FileReader("/src/com/TankGame/Document/MyScoresAndTankCoordinates");
+            fileReader = new FileReader("resources/Document/MyScoresAndTankCoordinates");
             bufferedReader = new BufferedReader(fileReader);
 
             //读第一行：MyScores文件到String中
@@ -137,7 +133,6 @@ public class Recorder {
                 e.printStackTrace();
             }
         }
-
     }
 
     //重制我的生命和敌人数量

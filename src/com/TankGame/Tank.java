@@ -27,7 +27,6 @@ class Tank {
 
     //坦克开炮的方法
     public void shot() {
-
     }
 
     public int getX() {

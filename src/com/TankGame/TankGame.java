@@ -101,7 +101,6 @@ public class TankGame extends JFrame implements ActionListener , KeyListener {
         this.setSize(1080, 720);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-
     }
 
     //点击开始游戏，重新游戏，退出游戏
@@ -139,8 +138,8 @@ public class TankGame extends JFrame implements ActionListener , KeyListener {
             Recorder.myTank=mp.myTank;
             //保存我的分数,我的坐标和敌人的坐标
             Recorder.saveMyScoresAndTankCoordinates();
-
         }
+
         //重载游戏/恢复游戏
         else if (e.getActionCommand().equals("reload")){
             this.remove(mp);
@@ -148,7 +147,6 @@ public class TankGame extends JFrame implements ActionListener , KeyListener {
             Recorder.recoverMyScoresAndTankCoordinates();
             mp = new MyPanel("recover game");
             this.startTheGame();
-
         }
     }
 
@@ -163,7 +161,6 @@ public class TankGame extends JFrame implements ActionListener , KeyListener {
     //没用到
     @Override
     public void keyReleased(KeyEvent e) {
-
     }
     //没用到
     @Override

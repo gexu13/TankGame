@@ -3,7 +3,6 @@ package com.TankGame;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class StageOnePanel extends JPanel implements Runnable {
     int times=0;
     public void paint(Graphics graphics){

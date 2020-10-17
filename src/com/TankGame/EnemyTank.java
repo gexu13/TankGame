@@ -111,8 +111,6 @@ class EnemyTank extends Tank implements Runnable {
                     Thread thread = new Thread(shell);
                     thread.start();
                 }
-
-
             }
         }
     }

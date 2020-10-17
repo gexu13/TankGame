@@ -27,14 +27,12 @@ class MyTank extends Tank {
                 shell = new Shell(x + 31, y - 2, 3);
                 shellVector.add(shell);
                 break;
-
         }
         //启动线程
         //炮弹在shot里创建，所以炮弹的线程在这里启动。创建就启动运行。
         Thread threadShell = new Thread(shell);
         //每一颗炮弹都被start了一次
         threadShell.start();
-
     }
 
     //我的坦克向上移动

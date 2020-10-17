@@ -9,6 +9,5 @@ public class TankCoordinate {
         this.x=x;
         this.y=y;
         this.direction=direction;
-
     }
 }

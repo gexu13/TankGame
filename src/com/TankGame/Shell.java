@@ -79,8 +79,6 @@ public class Shell implements Runnable {
                 this.shellExist = false;
                 //System.out.println("子弹头"+this.shellExist);
                 break;
-
-
             }
         }
     }

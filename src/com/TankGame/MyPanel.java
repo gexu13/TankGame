@@ -34,8 +34,6 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         //image2=Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("\bomb2.jpg"));
         //image1=Toolkit.getDefaultToolkit().getImage(Panel.class.getResource("\bomb1.jpg"));
         try {
-            final String dir = System.getProperty("user.dir");
-            System.out.println("current dir = " + dir);
             image4 = ImageIO.read(new File("resources/pics/bomb4.jpg"));
             image3 = ImageIO.read(new File("resources/pics/bomb3.jpg"));
             image2 = ImageIO.read(new File("resources/pics/bomb2.jpg"));
@@ -154,12 +152,12 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
                     Shell enemyShell = enemyTank.shellVector.get(j);
                     //System.out.println("enemyTank.shellVector.size()= 第" + i + "台" + enemyTank.shellVector.size());
                     //如果炮弹存在，就画出来
-                    if (enemyShell != null || enemyShell.shellExist == true) {
+                    if (enemyShell != null || enemyShell.shellExist) {
                         g.setColor(Color.white);
                         g.fillOval(enemyShell.getX(), enemyShell.getY(), 4, 4);
                     }
                     //如果不存在，就把它从敌人炮弹集合中删除
-                    if (enemyShell.shellExist == false) {
+                    if (!enemyShell.shellExist) {
                         enemyTank.shellVector.remove(j);
                     }
                 }
@@ -168,12 +166,12 @@ class MyPanel extends JPanel implements KeyListener, Runnable {
         //画我的坦克的炮弹
         for (int i = 0; i < myTank.shellVector.size(); i++) {
             Shell tankShell = myTank.shellVector.get(i);
-            if (tankShell != null || tankShell.shellExist == true) {
+            if (tankShell != null || tankShell.shellExist) {
                 g.setColor(Color.white);
                 g.fillOval(tankShell.getX(), tankShell.getY(), 4, 4);
             }
             //碰墙后或击中敌人坦克后将炮弹从集合中删除
-            if (tankShell.shellExist == false) {
+            if (!tankShell.shellExist) {
                 myTank.shellVector.remove(tankShell);
 
 
